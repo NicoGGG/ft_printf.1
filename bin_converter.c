@@ -52,3 +52,9 @@ void	bin_add_one(char *bin, int dec)
 		bin_add_one(bin, dec - 1);
 	}
 }
+
+void	bin_neg(char *bin, int dec)
+{
+	bin_compl(bin);
+	bin_add_one(bin, dec);
+}

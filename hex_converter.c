@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   converter.c                                        :+:      :+:    :+:   */
+/*   ft_converter.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nguelfi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -22,7 +22,7 @@ int		nb_dec(value)
 	return (dec);
 }
 
-char	*convert(int value, int dec)
+char	*ft_convert(int value, int dec)
 {
 	char *result;
 
@@ -98,6 +98,6 @@ char	*hex_conv(int value)
 		return (hex_conv_neg(value));
 	dec = nb_dec(value);
 	tmp = (unsigned int)value;
-	result = convert(tmp, dec);
+	result = ft_convert(tmp, dec);
 	return (result);
 }

@@ -11,13 +11,14 @@
 /* ************************************************************************** */
 
 #include <unistd.h>
+#include "ft_printf.h"
 
-void	ft_putchar(char c)
+void	ft_putcharprint(char c)
 {
 	write(1, &c, 1);
 }
 
-void	ft_putstr(char const *s)
+void	ft_putstrprint(char const *s)
 {
 	int i;
 
@@ -29,15 +30,36 @@ void	ft_putstr(char const *s)
 	}
 }
 
-void	ft_putnbr(int n)
+int		ft_toupperprint(int c)
+{
+	if (c >= 97 && c <= 122)
+		return (c - 32);
+	else
+		return (c);
+}
+
+char	*ft_strupper(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+	{
+		str[i] = ft_toupper(str[i]);
+		i++;
+	}
+	return (str);
+}
+
+void	ft_putnbrprint(long long n)
 {
 	char c;
 
-	if (n == -2147483648)
-	{
-		write(1, "-2147483648", 11);
-		return ;
-	}
+//	if (n == -2147483648)
+//	{
+//		write(1, "-2147483648", 11);
+//		return ;
+//	}
 	if (n < 0)
 	{
 		write(1, "-", 1);
@@ -55,7 +77,7 @@ void	ft_putnbr(int n)
 	}
 }
 
-int		ft_strlen(char *str)
+int		ft_strlenprint(char *str)
 {
 	int i;
 

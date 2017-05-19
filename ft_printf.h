@@ -17,16 +17,20 @@
 # include <stdlib.h>
 # include <stdarg.h>
 # include <string.h>
+# include "libft/libft.h"
 
-void	ft_putchar(char c);
-void	ft_putstr(char const *s);
-void	ft_putnbr(int n);
 int		ft_printf(const char *format, ...);
 char	*hex_conv(int value);
-int		ft_power(int nb, int p);
-int		ft_strlen(char *str);
 void	bin_add_one(char *bin, int dec);
 void	bin_compl(char *bin);
 char	*bin_conv_int(int value, int dec);
+char	*ft_strupper(char *str);
+void	ft_convert_nbr(char *string, int length, int special, signed int arg);
+void	padd_blank_left(char *string, int length, int larg);
+void	padd_blank_right(char *string, int length, int larg);
+void	padd_zero_left(char *string, int length, int larg);
+void	padd_plus_left(char *string, int length, int larg);
+void	padd_plus_zero_left(char *string, int length, int larg);
+void	padd_plus_right(char *string, int length, int larg);
 
 #endif
