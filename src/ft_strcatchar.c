@@ -1,23 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_power.c                                         :+:      :+:    :+:   */
+/*   ft_strcatchar.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nguelfi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/05/02 16:39:08 by nguelfi           #+#    #+#             */
-/*   Updated: 2017/05/02 16:40:56 by nguelfi          ###   ########.fr       */
+/*   Created: 2017/05/19 16:03:34 by nguelfi           #+#    #+#             */
+/*   Updated: 2017/05/19 16:04:35 by nguelfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_power(int nb, int p)
+char	*ft_strcatchar(char *dst, char c)
 {
-	if (p < 0)
-		return (0);
-	else if (p == 0)
-		return (1);
-	else
-		return (nb * ft_power(nb, p - 1));
+	int i;
+
+	i = 0;
+	while (dst[i])
+		i++;
+	dst[i++] = c;
+	dst[i] = 0;
+	return (dst);
 }

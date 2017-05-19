@@ -17,7 +17,7 @@
 # include <stdlib.h>
 # include <stdarg.h>
 # include <string.h>
-# include "libft.h"
+# include "libft/libft.h"
 
 int		ft_printf(const char *format, ...);
 char	*hex_conv(int value);
@@ -32,5 +32,6 @@ void	padd_zero_left(char *string, int length, int larg);
 void	padd_plus_left(char *string, int length, int larg);
 void	padd_plus_zero_left(char *string, int length, int larg);
 void	padd_plus_right(char *string, int length, int larg);
+
 
 #endif

@@ -1,23 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_power.c                                         :+:      :+:    :+:   */
+/*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nguelfi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/05/02 16:39:08 by nguelfi           #+#    #+#             */
-/*   Updated: 2017/05/02 16:40:56 by nguelfi          ###   ########.fr       */
+/*   Created: 2017/04/13 19:07:55 by nguelfi           #+#    #+#             */
+/*   Updated: 2017/04/14 14:32:03 by nguelfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-int		ft_power(int nb, int p)
+int		ft_toupper(int c)
 {
-	if (p < 0)
-		return (0);
-	else if (p == 0)
-		return (1);
+	if (c >= 97 && c <= 122)
+		return (c - 32);
 	else
-		return (nb * ft_power(nb, p - 1));
+		return (c);
 }

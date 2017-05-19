@@ -32,5 +32,12 @@ void	padd_zero_left(char *string, int length, int larg);
 void	padd_plus_left(char *string, int length, int larg);
 void	padd_plus_zero_left(char *string, int length, int larg);
 void	padd_plus_right(char *string, int length, int larg);
+void	ft_putnbrprint(long n);
+int		ft_istype_flag(char c);
+int		ft_isspecial_flag(char c);
+void	padd_string_left(char *string, int *length, int special, char *strarg);
+void	padd_string_right(char *string, int length, int special, char *strarg);
+
+
 
 #endif

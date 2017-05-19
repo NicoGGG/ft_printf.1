@@ -1,23 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_power.c                                         :+:      :+:    :+:   */
+/*   ft_strnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nguelfi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/05/02 16:39:08 by nguelfi           #+#    #+#             */
-/*   Updated: 2017/05/02 16:40:56 by nguelfi          ###   ########.fr       */
+/*   Created: 2017/04/13 19:27:48 by nguelfi           #+#    #+#             */
+/*   Updated: 2017/04/24 19:25:34 by nguelfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stdlib.h>
 
-int		ft_power(int nb, int p)
+char	*ft_strnew(size_t size)
 {
-	if (p < 0)
-		return (0);
-	else if (p == 0)
-		return (1);
-	else
-		return (nb * ft_power(nb, p - 1));
+	size_t	i;
+	char	*new;
+
+	i = 0;
+	if ((new = malloc(sizeof(char) * size + 1)) == NULL)
+		return (NULL);
+	while (i <= size)
+	{
+		new[i] = 0;
+		i++;
+	}
+	return (new);
 }

@@ -1,23 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_power.c                                         :+:      :+:    :+:   */
+/*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nguelfi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/05/02 16:39:08 by nguelfi           #+#    #+#             */
-/*   Updated: 2017/05/02 16:40:56 by nguelfi          ###   ########.fr       */
+/*   Created: 2017/04/13 18:57:59 by nguelfi           #+#    #+#             */
+/*   Updated: 2017/04/13 19:53:54 by nguelfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-int		ft_power(int nb, int p)
+int		ft_isdigit(int c)
 {
-	if (p < 0)
-		return (0);
-	else if (p == 0)
+	if (c >= 48 && c <= 57)
 		return (1);
 	else
-		return (nb * ft_power(nb, p - 1));
+		return (0);
 }

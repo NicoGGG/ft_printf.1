@@ -7,7 +7,10 @@ OBJ_DIR = ./obj
 INC = ft_printf.h.h libft.h
 INCLUDE = $(addprefix $(INC_DIR)/,$(INC)
 SRC = 	bin_converter.c ft_printf.c hex_converter.c ft_padd_left.c \
-		ft_padd_right.c convert_int.c put.c
+		ft_padd_right.c convert_int.c put.c ft_power.c ft_atoi.c \
+		ft_isdigit.c ft_itoa.c ft_memset.c ft_putchar.c ft_putstr.c \
+		ft_strcat.c ft_strcatchar.c ft_strlen.c ft_strncat.c ft_toupper.c \
+		ft_strnew.c ft_isflag.c
 BIN = ${SRC:%.c=%.o}
 OBJ = $(addprefix $(OBJ_DIR)/,$(SRC:.c=.o))
 

@@ -50,7 +50,7 @@ void	ft_convert_nbr(char *string, int length, int special, signed int arg)
 
 	strarg = ft_itoa(arg);
 	larg = ft_strlen(strarg);
-	//printf("TEST ITOA AND LARG AND LENGTH AND SPECIAL %s, %d, %d, %d\n", strarg, larg, length, special);
+//	printf("TEST ITOA AND LARG AND LENGTH AND SPECIAL %s, %d, %d, %d\n", strarg, larg, length, special);
 	if (larg < length)
 		padd_string_left(string, &length, special, strarg);
 	string = ft_strcat(string, strarg);

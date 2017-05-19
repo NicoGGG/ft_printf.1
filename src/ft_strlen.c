@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_power.c                                         :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nguelfi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/05/02 16:39:08 by nguelfi           #+#    #+#             */
-/*   Updated: 2017/05/02 16:40:56 by nguelfi          ###   ########.fr       */
+/*   Created: 2017/04/13 17:02:51 by nguelfi           #+#    #+#             */
+/*   Updated: 2017/05/02 14:32:04 by nguelfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_power(int nb, int p)
+size_t		ft_strlen(const char *s)
 {
-	if (p < 0)
-		return (0);
-	else if (p == 0)
-		return (1);
-	else
-		return (nb * ft_power(nb, p - 1));
+	int i;
+
+	i = 0;
+	while (s[i])
+		i++;
+	return (i);
 }

@@ -1,23 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_power.c                                         :+:      :+:    :+:   */
+/*   ft_strncat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nguelfi <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/05/02 16:39:08 by nguelfi           #+#    #+#             */
-/*   Updated: 2017/05/02 16:40:56 by nguelfi          ###   ########.fr       */
+/*   Created: 2017/04/13 17:22:09 by nguelfi           #+#    #+#             */
+/*   Updated: 2017/04/13 19:55:51 by nguelfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <string.h>
 
-int		ft_power(int nb, int p)
+char	*ft_strncat(char *s1, const char *s2, size_t n)
 {
-	if (p < 0)
-		return (0);
-	else if (p == 0)
-		return (1);
-	else
-		return (nb * ft_power(nb, p - 1));
+	size_t	i;
+	int		len;
+
+	i = 0;
+	len = 0;
+	while (s1[len])
+		len++;
+	while (i < n && s2[i])
+	{
+		s1[len] = s2[i];
+		i++;
+		len++;
+	}
+	s1[len] = 0;
+	return (s1);
 }
