@@ -80,6 +80,7 @@ void	init_parse(t_parsing *parse)
 	(*parse).space = 0;
 	(*parse).precision = 0;
 	(*parse).width = 0;
+	//(*parse).conv = ft_strnew(1);
 }
 void	convert_flag(const char **format, va_list ap, char *string)
 {

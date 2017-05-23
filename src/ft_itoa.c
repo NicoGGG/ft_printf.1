@@ -39,10 +39,11 @@ void		fill_number(int n, char *result, int dec, t_parsing parse)
 	}
 	while (dec)
 	{
+
 		if (parse.precision || parse.zero)
 			result[dec] = '0';
 		else if (parse.width)
-			result[dec] = ' '
+			result[dec] = ' ';
 	}
 }
 
