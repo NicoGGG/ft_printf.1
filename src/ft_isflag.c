@@ -30,7 +30,7 @@ int		ft_istype_flag(char c)
 
 int		ft_isspecial_flag(char c)
 {
-	if (c == '#' || c == '0' || c == '-' || c == '+' || c == '.')
+	if (c == '#' || c == '0' || c == '-' || c == '+' || c == ' ')
 		return (1);
 	return (0);
 }

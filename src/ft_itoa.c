@@ -20,16 +20,46 @@ static int	dec(int n)
 		return (dec(n / 10) + 1);
 }
 
-char		*ft_itoa(int n)
+void		fill_number(int n, char *result, int dec, t_parsing parse)
+{
+	int		width;
+
+	if (parse.precision > dec)
+	{
+		width = dec;
+		dec = parse.precision;
+	}
+	if (parse.plus == 1)
+		dec++;
+	while ((n / 10))
+	{
+		result[dec] = (n % 10) * -1 + 48;
+		n /= 10;
+		dec--;
+	}
+	while (dec)
+	{
+		if (parse.precision || parse.zero)
+			result[dec] = '0';
+		else if (parse.width)
+			result[dec] = ' '
+	}
+}
+
+char		*print_itoa(int n, t_parsing parse)
 {
 	int		nbd;
 	char	*result;
+	int		tmp;
 
+	tmp = n;
 	nbd = dec(n);
 	if (n >= 0)
 		n = -n;
 	else
 		nbd++;
+	if (nbd < parse.width)
+		nbd = parse.width;
 	if ((result = malloc(sizeof(char) * nbd + 1)) == NULL)
 		return (NULL);
 	result[nbd] = 0;

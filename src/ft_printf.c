@@ -12,46 +12,94 @@
 
 #include "ft_printf.h"
 
-int		convert_special_flag(const char **format)
+char	*parsing_flags(const char **format)
 {
-	int		result;
-	int		i;
+	char	*result;
 
-	i = 0;
-	result = 0;
+	if ((result = ft_strnew(20)) == NULL)
+		return (NULL);
 	while (**format)
 	{
 		if (**format == '#')
-			result += 1;
-		if (**format == '0' || **format == '.')
-			result += 2;
+			*result = **format;
+		if (**format == '0')
+			*result = **format;
 		if (**format == '-')
-			result += 4;
+			*result = **format;
 		if (**format == '+')
-			result += 8;
+			*result = **format;
+		if (**format == ' ')
+			*result = **format;
 		if (**format == '#' || **format == '0' || **format == '-'
-			|| **format == '+')
+			|| **format == '+' || **format == ' ')
 			*format += 1;
 		else
-			return (result);
+			break ;
+		result += 1;
 	}
+
 	return (result);
 }
 
+char	*ft_trim_flags(char *special)
+{
+	char	*tmp;
+
+	while (ft_strchr(special, '0') && ft_strchr(special, '-')
+		|| ft_strchr(special, '0') && ft_strchr(special, '.'))
+		{
+			tmp = ft_strchr(special, '0');
+			*tmp = 0;
+			special = ft_strcat(special, tmp + 1);
+		}
+	while (ft_strchr(special, ' ') && ft_strchr(special, '+'))
+	{
+		tmp = ft_strchr(special, ' ');
+		*tmp = 0;
+		special = ft_strcat(special, tmp + 1);
+	}
+
+}
+
+char	*ft_convert_format(char **format, t_padding parse)
+{
+	while (!(ft_istype_flag(**format)))
+	{
+		*special = **format;
+		(*format)++;
+	}
+	*special = **format;
+}
+
+void	init_parse(t_parsing *parse)
+{
+	(*parse).sharp = 0;
+	(*parse).minus = 0;
+	(*parse).plus = 0;
+	(*parse).zero = 0;
+	(*parse).space = 0;
+	(*parse).precision = 0;
+	(*parse).width = 0;
+}
 void	convert_flag(const char **format, va_list ap, char *string)
 {
-	int		special;
-	int		length;
+	t_parsing	parse;
+	char		*conversion;
 
-	length = 0;
-	special = convert_special_flag(format);
-//	while ((ft_isspecial_flag(**format)))
-//		(*format) += 1;
+	init_parse(&parse);
+	if ((parsing_flags(format, &parse)) == NULL)
+		return ;
 	if (ft_isdigit(**format))
-		length = ft_atoi(*format);
+		parse.width = ft_atoi(*format);
 	while (ft_isdigit(**format))
 		(*format) += 1;
-	while (!(ft_istype_flag(**format)))
+	if (**format == '.')
+		parse.precision = ft_atoi((*format) + 1);
+	while (!(ft_istype_flag(**format)) && !(ft_issize_flag(**format)))
+		(*format)++;
+	conversion = ft_convert_format(format, parse);
+
+/*	while (!(ft_istype_flag(**format)))
 		(*format) += 1;
 	if (**format == 'd' || **format == 'i')
 		ft_convert_nbr(string, length, special, va_arg(ap, signed int));
@@ -75,7 +123,7 @@ void	convert_flag(const char **format, va_list ap, char *string)
 		if (1 < length)
 			padd_string_right(string, length, special, "%");
 	}
-
+*/
 /*	if (**format == ' ')
 	{
 		if (special >= 8)
@@ -91,21 +139,25 @@ int		ft_printf(const char *format, ...)
 	char	*string;
 	size_t	ret;
 
-	if ((string = ft_strnew(4096)) == NULL)
-		return (-1);
+/*	if ((string = ft_strnew(4096)) == NULL)
+		return (-1);*/
+	ret = 0;
 	va_start(ap, format);
 	while (*format)
 	{
 		if (*format == '%')
 		{
 			format++;
-			convert_flag(&format, ap, string);
+			//convert_flag(&format, ap, string);
+			convert_flag(&format, ap, ret);
 		}
 		else
-			string = ft_strcatchar(string, *format);
+			ft_putchar(*format);
+	//		string = ft_strcatchar(string, *format);
 		format++;
+		ret++;
 	}
 	ft_putstr(string);
-	ret = ft_strlen(string);
+	//ret = ft_strlen(string);
 	return (ret);
 }
